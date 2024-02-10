@@ -4,7 +4,7 @@ import pickle
 import numpy as np
 from sklearn.preprocessing import StandardScaler
 
-model = pickle.load(open(r"SolarXG.pkl", 'rb'))
+model = pickle.load(open(r"SolarNN.pkl", 'rb'))
 
 st.title("Solar Radiance Prediction")
 st.image("https://storage.googleapis.com/kaggle-datasets-images/1296/2322/0b16f3559783c578157e0997dc15d4af/dataset-cover.jpg",caption ="Radiating Solar Power",use_column_width=True)
