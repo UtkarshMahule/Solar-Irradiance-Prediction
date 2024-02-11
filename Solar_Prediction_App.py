@@ -19,15 +19,17 @@ Humidity    = st.number_input("Enter Humidity :",min_value = 5, max_value = 108,
 WindDirection = st.number_input("Enter WindDirection(Degrees) :",min_value = 0., max_value = 360.,step=0.01,format="%.2f", value = 108.)
 Speed = st.number_input("Enter Speed :",min_value = 0., max_value = 45.,step=0.01,format="%.2f", value = 10.)
 Month = st.selectbox("Select a Month :", ['September', 'October', 'November', 'December'])
+max_day = 30
 if(Month == "September"):
     Month = 9
+    max_day = 30
 elif(Month == "October"):
     Month = 10
+    max_day = 31
 elif(Month == "November"):
     Month = 11
-else:
-    Month = 12
-Day = st.number_input("Enter the day of the month: ", min_value = 1, max_value = 30 if Month in ['September','November']  else 31, step = 1, value = 15)
+    max_day = 30
+Day = st.number_input("Enter the day of the month: ", min_value = 1, max_value = max_day, step = 1, value = 15)
 Hour   = st.number_input("Enter Hour :",min_value = 0, max_value = 23,step=1, value = 12)
 Minute = st.number_input("Enter Minute :",min_value = 0, max_value = 59,step=1, value = 36)
 Second = st.number_input("Enter Second :",min_value = 0, max_value = 59,step=1, value = 36)
@@ -45,7 +47,7 @@ df = scaler.fit_transform(df)
 
 if st.button("Predict"):                                                                ## prediction button created,which returns predicted value from ml model(pickle file)
     result = model.predict(df)                                                        ## prediction of user-input
-    st.write("Solar Irradiance (in watts per square metre (W/m2)) : {}%".format(result))
+    st.write("Solar Irradiance (in watts per square metre (W/m2)) : {}".format(result))
 
 
 
