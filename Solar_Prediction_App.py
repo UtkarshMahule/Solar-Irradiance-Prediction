@@ -29,6 +29,9 @@ elif(Month == "October"):
 elif(Month == "November"):
     Month = 11
     max_day = 30
+else:
+    Month = 12
+    max_day = 31
 Day = st.number_input("Enter the day of the month: ", min_value = 1, max_value = max_day, step = 1, value = 15)
 Hour   = st.number_input("Enter Hour :",min_value = 0, max_value = 23,step=1, value = 12)
 Minute = st.number_input("Enter Minute :",min_value = 0, max_value = 59,step=1, value = 36)
