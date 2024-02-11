@@ -42,8 +42,8 @@ data = {"Temperature" : Temperature, "Pressure" : Pressure, "Humidity" : Humidit
         'Month': Month, "Day" : Day, 'Hour': Hour, "Minute" : Minute, "Second" : Second, "risehour" : risehour,"riseminute":risehour, 'sethour' : sethour, 'setminute': setminute}
 
 df=pd.DataFrame(data,index=[0])
-scaler = StandardScaler()
-df = scaler.fit_transform(df)
+#scaler = StandardScaler()
+#df = scaler.fit_transform(df)
 
 if st.button("Predict"):                                                                ## prediction button created,which returns predicted value from ml model(pickle file)
     result = model.predict(df)                                                        ## prediction of user-input
