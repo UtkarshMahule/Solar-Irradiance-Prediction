@@ -2,7 +2,6 @@ import pandas as pd
 import streamlit as st
 import pickle
 import numpy as np
-from sklearn.preprocessing import StandardScaler
 
 model = pickle.load(open(r"SolarXG.pkl", 'rb'))
 
@@ -41,8 +40,6 @@ data = {"Temperature" : Temperature, "Pressure" : Pressure, "Humidity" : Humidit
         'Month': Month, "Day" : Day, 'Hour': Hour, "Minute" : Minute, "Second" : Second, "risehour" : risehour,"riseminute":risehour, 'sethour' : sethour, 'setminute': setminute}
 
 df=pd.DataFrame(data,index=[0])
-#scaler = StandardScaler()
-#df = scaler.fit_transform(df)
 
 if st.button("Predict"):                                                                ## prediction button created,which returns predicted value from ml model(pickle file)
     result = model.predict(df)                                                        ## prediction of user-input
